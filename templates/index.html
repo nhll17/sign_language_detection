@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Language Detection</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: cover;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .card-glass {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    #video-feed {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    #prediction {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #f8f9fa;
+    }
+
+    button {
+      font-size: 1.2rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 card-glass text-center p-4">
+        <h1 class="mb-4">🤟 Sign Language Detection</h1>
+
+        <img src="{{ url_for('video_feed') }}" class="img-fluid rounded" alt="Webcam feed" />
+
+        <h3 class="mt-4">Predicted Sign:</h3>
+        <div id="prediction">{{ prediction }}</div>
+
+        <button onclick="speakPrediction()" class="btn btn-outline-info mt-3">🔊 Speak</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript for speech synthesis -->
+  <script>
+    function speakPrediction() {
+      const predictionText = document.getElementById("prediction").innerText;
+      if (predictionText.trim() !== '') {
+        const utterance = new SpeechSynthesisUtterance("The predicted sign is " + predictionText);
+        utterance.lang = "en-US";
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+    setInterval(() => {
+      fetch('/prediction')
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('prediction').textContent = data.prediction;
+        });
+    }, 1000);
+
+    // Optional: speak automatically on load
+    window.onload = function () {
+      speakPrediction();
+    };
+  </script>
+</body>
+
+</html>

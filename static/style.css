@@ -1,0 +1,45 @@
+/* Background gradient with subtle pattern overlay */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #3b2f4f);
+    background-image: url('https://www.transparenttextures.com/patterns/symphony.png');
+
+    color: #ffffff;
+    min-height: 100vh;
+    background-size: cover;
+    background-repeat: repeat;
+  }
+  
+  /* Stylish card with shadows and glass effect */
+  .card {
+    border-radius: 20px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+  }
+  
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  h1, h3 {
+    font-weight: bold;
+  }
+  
+  #prediction {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #00ffcc;
+  }
+  
+  img {
+    border-radius: 10px;
+    border: 2px solid #ccc;
+  }
+  
