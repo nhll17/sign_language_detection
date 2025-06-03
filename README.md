@@ -120,7 +120,7 @@ This project is open-source and free to use.
 
 Feel free to fork this repository and open a pull request. Suggestions and improvements are welcome!
 
----
+
 
 ## 🧑‍💻 Author
 
