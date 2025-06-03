@@ -151,7 +151,3 @@ Feel free to fork this repository and open a pull request. Suggestions and impro
 
 ```
 
----
-
-Let me know if you want to include screenshots, a sample video, or deployment instructions (e.g., on Heroku or Render).
-```
