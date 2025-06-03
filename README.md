@@ -16,28 +16,6 @@ A real-time sign language recognition system built with Flask, OpenCV, and machi
 
 ---
 
-## 📁 Project Structure
-
-```
-
-sign-language-flask-app/
-│
-├── static/                    # (Optional for custom CSS/JS)
-├── templates/
-│   └── index.html             # Frontend HTML file
-│
-├── model/
-│   └── model.pkl              # Trained ML model
-│
-├── sign\_data\_combined.csv     # Dataset used for training
-├── app.py                     # Flask server logic
-├── video.py                   # Webcam + Prediction logic
-├── requirements.txt           # Python dependencies
-└── README.md                  # You're here!
-
-````
-
----
 
 ## 🚀 Getting Started
 
