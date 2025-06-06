@@ -52,28 +52,6 @@ Then open your browser and go to: [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 ---
 
-## 🧠 Model Training (Optional)
-
-You can retrain the model using `sign_data_combined.csv` in a Jupyter Notebook or a Python script:
-
-```python
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-import pandas as pd, pickle
-
-df = pd.read_csv("sign_data_combined.csv")
-X = df.drop("label", axis=1)
-y = df["label"]
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-model = RandomForestClassifier()
-model.fit(X_train, y_train)
-
-with open("model/model.pkl", "wb") as f:
-    pickle.dump(model, f)
-```
-
----
 
 ## 🧪 Tech Stack
 
@@ -126,3 +104,5 @@ Feel free to fork this repository and open a pull request. Suggestions and impro
 
 **Devatheertha**
 [GitHub Profile](https://github.com/Devatheertha05)
+**Nehal Nourine**
+[GitHub Profile](https://github.com/nhll17)
